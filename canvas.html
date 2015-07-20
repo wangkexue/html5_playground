@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  canvas {
+    width: 200px;
+    height: 200px;
+    float: left;
+    border: 20px;
+  }
+  </style>
+</head>
+<body onload="init()">
+  <canvas id="arcToCanvas"></canvas>
+  <canvas id="radiusGradCanvas"></canvas>
+</body>
+</html>
+<script>
+function init() {
+  var canvas = document.querySelector("#arcToCanvas");
+  var ctx = canvas.getContext('2d');
+
+  arcToExp();
+  radisuGradCanvas();
+
+  function arcToExp() {
+    ctx.save()
+    ctx.strokeStyle = 'rgb(150, 0, 0)';
+    ctx.fillStyle = 'rgb(0, 150, 0)';
+    ctx.lineWidth = 7;
+    var x = 15;
+    var y = 15;
+    var width = 160;
+    var height = 120;
+    var radius = 20;
+
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y);
+    ctx.arcTo(x + width, y, x + width, y + radius, radius);
+    ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function radiusGradCanvas() {
+    ctx.save();
+    ctx.restore();
+  }
+}
+</script>
