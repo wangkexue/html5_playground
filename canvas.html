@@ -4,17 +4,38 @@
   <meta charset="utf-8">
   <title>JS Bin</title>
   <style>
-  canvas {
-    width: 200px;
-    height: 200px;
+  .wrapper {
     float: left;
     border: 20px;
+    width: auto;
+    height: auto;
+  }
+  .wrapper canvas {
+    width: 100%;
+    height: 200px;
+  }
+
+  .wrapper header {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-size: 1rem;
   }
   </style>
 </head>
 <body onload="init()">
-  <canvas id="arcToCanvas"></canvas>
-  <canvas id="radiusGradCanvas"></canvas>
+  <div class="wrapper">
+    <header><h2>arcTo</h2></header>
+    <canvas id="arcToCanvas"></canvas>
+  </div>
+  <div class="wrapper">
+    <header><h2>radius gradient</h2></header>
+    <canvas id="radiusGradCanvas"></canvas>
+  </div>
+  <div class="wrapper">
+    <header><h2>painting with pattern</h2></header>
+    <canvas id="paintingWithPatternCanvas"></canvas>
+  </div>
 </body>
 </html>
 <script>
@@ -23,7 +44,8 @@ function init() {
   var ctx = canvas.getContext('2d');
 
   arcToExp();
-  radisuGradCanvas();
+  radisuGrad();
+  paintingWithPattern();
 
   function arcToExp() {
     ctx.save()
@@ -44,7 +66,12 @@ function init() {
     ctx.restore();
   }
 
-  function radiusGradCanvas() {
+  function radiusGrad() {
+    ctx.save();
+    ctx.restore();
+  }
+
+  function paintingWithPattern() {
     ctx.save();
     ctx.restore();
   }
